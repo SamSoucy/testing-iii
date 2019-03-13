@@ -19,11 +19,13 @@ describe("The Display", () => {
         getByText(/locked/i);
         getByText(/unlocked/i);
     });
-    
-    // it("Gate is locked or unlocked", () => {
-    //     const { getByText } = render(<Display locked={true} unlocked={true} />);
 
-    //     getByText(/locked/i);
-    //     getByText(/unlocked/i);
-    // });
-})
+    it("displays 'Closed' if the closed prop is true and 'Open' if otherwise", () => {
+        const { getByText } = render(<Display closed={true} />);
+
+        getByText(/closed/i);
+    });
+    const { getByText } = render(<Display closed={false} />);
+
+    getByText(/open/i);
+});

@@ -57,7 +57,7 @@ describe("locked and closed color", () => {
 describe("unlocked and open color", () => {
     it("when unlocked or open use the green-led class", () => {
         const { getByText } = render(<Display unlocked={true} />);
-        const unlocked = getByText(/locked/i);
+        const unlocked = getByText(/unlocked/i);
         expect(unlocked).toHaveClass('green-led');
     });
         const { getByText } = render(<Display open={true} />);

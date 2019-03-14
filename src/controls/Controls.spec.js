@@ -23,3 +23,17 @@ describe("TheControls", () => {
 
         expect(button).toHaveTextContent(/lock gate/i)
 });
+
+describe("text changes ", () => {
+    it("buttons' text changes to reflect the state the door will be in if clicked", () => {
+        const { getByTestId } = render(<Controls />);
+        const button = getByTestId("closed");
+        fireEvent.click(button);
+        expect(button).toHaveTextContent(/close Gate/i);
+        
+    });
+        const { getByTestId } = render(<Controls />);
+        const button = getByTestId("locked");
+        fireEvent.click(button);
+        expect(button).toHaveTextContent(/Lock Gate/i);
+});

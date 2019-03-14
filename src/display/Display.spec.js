@@ -42,17 +42,27 @@ describe("displays 'Locked' and'Unlocked'", () => {
     
 });
 
-describe("locked and closed color and unlocked and open color", () => {
+describe("locked and closed color", () => {
     it("when locked or closed use the red-led class", () => {
-        const {getByText} = render(<Display locked={true} />);
+        const { getByText } = render(<Display locked={true} />);
         const locked = getByText(/locked/i);
-        expect (locked).toHaveClass('green-led');
-    })
+        expect(locked).toHaveClass('green-led');
+    });
         const { getByText } = render(<Display closed={true} />);
         const closed = getByText(/closed/i);
         expect(closed).toHaveClass('red-led');
    
-})
+});
 
+describe("unlocked and open color", () => {
+    it("when unlocked or open use the green-led class", () => {
+        const { getByText } = render(<Display unlocked={true} />);
+        const unlocked = getByText(/locked/i);
+        expect(unlocked).toHaveClass('green-led');
+    });
+        const { getByText } = render(<Display open={true} />);
+        const open = getByText(/open/i);
+        expect(open).toHaveClass('green-led');
+})
 
 

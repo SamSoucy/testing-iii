@@ -25,7 +25,34 @@ describe("The Display", () => {
 
         getByText(/closed/i);
     });
-    const { getByText } = render(<Display closed={false} />);
+        const { getByText } = render(<Display closed={false} />);
 
-    getByText(/open/i);
+        getByText(/open/i);
 });
+    
+describe("displays 'Locked' and'Unlocked'", () => {
+
+    it("displays 'Locked' if the locked prop is true and 'Unlocked' if otherwise", () => {
+        const { getByText } = render(<Display locked={true} />);
+        getByText(/locked/i);
+    });
+
+        const { getByText } = render(<Display locked={false} />);
+        getByText(/unlocked/i);
+    
+});
+
+describe("locked and closed color and unlocked and open color", () => {
+    it("when locked or closed use the red-led class", () => {
+        const {getByText} = render(<Display locked={true} />);
+        const locked = getByText(/locked/i);
+        expect (locked).toHaveClass('green-led');
+    })
+        const { getByText } = render(<Display closed={true} />);
+        const closed = getByText(/closed/i);
+        expect(closed).toHaveClass('red-led');
+   
+})
+
+
+
